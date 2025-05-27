@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProxyPrivate.vn - Proxy Riêng Tư Ẩn Danh HTTPS/SOCKS5</title>
+    <meta name="description" content="Mua proxy riêng tư chất lượng cao, hỗ trợ IPv4, IPv6, HTTPS/SOCKS5. Giá rẻ, tốc độ nhanh, bảo mật tuyệt đối.">
+    <meta name="keywords" content="proxy vietnam, proxy private, proxy riêng tư, mua proxy, proxy tốc độ cao">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="assets/images/favicon.ico">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="assets/images/logo.png" alt="ProxyPrivate.vn" class="logo-img">
+                PROXY<span class="highlight">PRIVATE</span>.VN
+            </div>
+            <nav class="nav-menu">
+                <a href="#" onclick="showSection('home')">MUA PROXY</a>
+                <a href="#" onclick="showSection('pricing')">BẢNG GIÁ</a>
+                <a href="#" onclick="showSection('faq')">HỖ TRỢ</a>
+                <a href="#" onclick="showSection('contact')">LIÊN HỆ</a>
+            </nav>
+            <div class="auth-buttons">
+                <button class="btn-login" onclick="showModal('login')">🇻🇳 Đăng nhập</button>
+                <button class="btn-register" onclick="showModal('register')">Đăng ký</button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Sub Header -->
+    <div class="sub-header">
+        <nav class="sub-nav">
+            <a href="#" onclick="showTool('checker')">KIỂM TRA PROXY</a>
+            <a href="#" onclick="showTool('myip')">IP CỦA TÔI</a>
+            <a href="#" onclick="showTool('whois')">WHOIS</a>
+            <a href="#" onclick="showTool('anonymity')">KIỂM TRA ẨN DANH</a>
+            <a href="#" onclick="showTool('blacklist')">BLACKLIST</a>
+            <a href="#" onclick="showTool('scanner')">QUÉT CỔNG</a>
+            <a href="#" onclick="showSection('dashboard')">API</a>
+        </nav>
+    </div>
+    
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Home Section -->
+        <div id="home-section" class="section active">
+            <div class="hero-section">
+                <h1 class="hero-title">MUA PROXY RIÊNG TƯ</h1>
+                <p class="hero-subtitle">PROXY ẨN DANH CHẤT LƯỢNG CAO HTTPS/SOCKS5</p>
+                
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number" id="users-count">15.247</div>
+                        <div class="stat-label">NGƯỜI DÙNG TIN TƯỞNG</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" id="sold-proxies">892.156</div>
+                        <div class="stat-label">PROXY ĐÃ BÁN</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" id="active-proxies">25.847</div>
+                        <div class="stat-label">PROXY ĐANG HOẠT ĐỘNG</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" id="orders-processed">156.923</div>
+                        <div class="stat-label">ĐơN HÀNG ĐÃ XỬ LÝ</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="proxy-cards">
+                <!-- IPv6 Card -->
+                <div class="proxy-card">
+                    <h3 class="card-title">IPv6</h3>
+                    <p class="card-subtitle">Phù hợp với các trang web hỗ trợ IPv6.</p>
+                    <p class="card-feature">Sử dụng cá nhân. Riêng biệt</p>
+                    
+                    <div class="form-group">
+                        <label class="form-label">QUỐC GIA</label>
+                        <select class="form-select" id="ipv6-country">
+                            <option value="vn">🇻🇳 Việt Nam</option>
+                            <option value="us">🇺🇸 Hoa Kỳ</option>
+                            <option value="sg">🇸🇬 Singapore</option>
+                            <option value="jp">🇯🇵 Nhật Bản</option>
+                            <option value="kr">🇰🇷 Hàn Quốc</option>
+                            <option value="th">🇹🇭 Thái Lan</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">SỐ LƯỢNG</label>
+                        <input type="number" class="form-input" id="ipv6-count" value="1" min="1" max="1000">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">THỜI GIAN</label>
+                        <select class="form-select" id="ipv6-period">
+                            <option value="3">3 ngày</option>
+                            <option value="7">1 tuần</option>
+                            <option value="30" selected>1 tháng</option>
+                            <option value="90">3 tháng</option>
+                        </select>
+                    </div>
+                    
+                    <div class="price-display" id="ipv6-price">15.000 ₫</div>
+                    
+                    <button class="buy-btn" onclick="buyProxy('ipv6')">Mua ngay</button>
+                    
+                    <div class="available-qty" id="ipv6-available">Kiểm tra số lượng khả dụng</div>
+                </div>
+                
+                <!-- IPv4 Card -->
+                <div class="proxy-card">
+                    <h3 class="card-title">IPv4</h3>
+                    <p class="card-subtitle">Phù hợp với tất cả các trang web.</p>
+                    <p class="card-feature">Sử dụng cá nhân. Riêng biệt</p>
+                    
+                    <div class="form-group">
+                        <label class="form-label">QUỐC GIA</label>
+                        <select class="form-select" id="ipv4-country">
+                            <option value="vn">🇻🇳 Việt Nam</option>
+                            <option value="us">🇺🇸 Hoa Kỳ</option>
+                            <option value="sg">🇸🇬 Singapore</option>
+                            <option value="jp">🇯🇵 Nhật Bản</option>
+                            <option value="kr">🇰🇷 Hàn Quốc</option>
+                            <option value="th">🇹🇭 Thái Lan</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">SỐ LƯỢNG</label>
+                        <input type="number" class="form-input" id="ipv4-count" value="1" min="1" max="1000">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">THỜI GIAN</label>
+                        <select class="form-select" id="ipv4-period">
+                            <option value="3">3 ngày</option>
+                            <option value="7">1 tuần</option>
+                            <option value="30" selected>1 tháng</option>
+                            <option value="90">3 tháng</option>
+                        </select>
+                    </div>
+                    
+                    <div class="price-display" id="ipv4-price">45.000 ₫</div>
+                    
+                    <button class="buy-btn" onclick="buyProxy('ipv4')">Mua ngay</button>
+                    
+                    <div class="available-qty" id="ipv4-available">Kiểm tra số lượng khả dụng</div>
+                </div>
+                
+                <!-- IPv4 Shared Card -->
+                <div class="proxy-card">
+                    <h3 class="card-title">IPv4 Chia sẻ</h3>
+                    <p class="card-subtitle">Phù hợp với tất cả các trang web.</p>
+                    <p class="card-feature">Sử dụng tối đa 3 người</p>
+                    
+                    <div class="form-group">
+                        <label class="form-label">QUỐC GIA</label>
+                        <select class="form-select" id="ipv4-shared-country">
+                            <option value="vn">🇻🇳 Việt Nam</option>
+                            <option value="us">🇺🇸 Hoa Kỳ</option>
+                            <option value="sg">🇸🇬 Singapore</option>
+                            <option value="jp">🇯🇵 Nhật Bản</option>
+                            <option value="kr">🇰🇷 Hàn Quốc</option>
+                            <option value="th">🇹🇭 Thái Lan</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">SỐ LƯỢNG</label>
+                        <input type="number" class="form-input" id="ipv4-shared-count" value="1" min="1" max="1000">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">THỜI GIAN</label>
+                        <select class="form-select" id="ipv4-shared-period">
+                            <option value="3">3 ngày</option>
+                            <option value="7">1 tuần</option>
+                            <option value="30" selected>1 tháng</option>
+                            <option value="90">3 tháng</option>
+                        </select>
+                    </div>
+                    
+                    <div class="price-display" id="ipv4-shared-price">20.000 ₫</div>
+                    
+                    <button class="buy-btn" onclick="buyProxy('ipv4-shared')">Mua ngay</button>
+                    
+                    <div class="available-qty" id="ipv4-shared-available">Kiểm tra số lượng khả dụng</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Dashboard Section -->
+        <div id="dashboard-section" class="section dashboard">
+            <div class="sidebar">
+                <div class="user-info">
+                    <div class="avatar">
+                        <span id="user-avatar">👤</span>
+                    </div>
+                    <div class="user-details">
+                        <div class="username" id="username">Khách</div>
+                        <div class="user-email" id="user-email">guest@proxyprivate.vn</div>
+                    </div>
+                </div>
+                
+                <div class="balance-info">
+                    <div>Số dư tài khoản</div>
+                    <div class="balance-amount" id="user-balance">0 ₫</div>
+                </div>
+                
+                <nav class="sidebar-nav">
+                    <a href="#" class="sidebar-item active" onclick="showDashboardTab('proxies')">
+                        <span class="icon">📡</span> Proxy của tôi
+                    </a>
+                    <a href="#" class="sidebar-item" onclick="showDashboardTab('orders')">
+                        <span class="icon">📋</span> Đơn hàng
+                    </a>
+                    <a href="#" class="sidebar-item" onclick="showDashboardTab('payments')">
+                        <span class="icon">💳</span> Thanh toán
+                    </a>
+                    <a href="#" class="sidebar-item" onclick="showDashboardTab('profile')">
+                        <span class="icon">👤</span> Thông tin cá nhân
+                    </a>
+                    <a href="#" class="sidebar-item" onclick="showDashboardTab('api')">
+                        <span class="icon">⚙️</span> API Tích hợp
+                    </a>
+                    <a href="#" class="sidebar-item" onclick="logout()">
+                        <span class="icon">🚪</span> Đăng xuất
+                    </a>
+                </nav>
+            </div>
+            
+            <div class="main-content">
+                <div id="message-area"></div>
+                
+                <!-- Proxies Tab -->
+                <div id="proxies-tab" class="dashboard-tab">
+                    <div class="tab-header">
+                        <h2>PROXY CỦA TÔI</h2>
+                        <div class="tab-actions">
+                            <button class="btn-primary" onclick="showSection('home')">Mua thêm proxy</button>
+                            <button class="btn-secondary" onclick="refreshProxies()">Làm mới</button>
+                            <button class="btn-secondary" onclick="exportProxies()">Xuất file</button>
+                        </div>
+                    </div>
+                    
+                    <div class="proxy-filters">
+                        <select id="filter-status">
+                            <option value="all">Tất cả trạng thái</option>
+                            <option value="active">Đang hoạt động</option>
+                            <option value="expired">Đã hết hạn</option>
+                        </select>
+                        
+                        <select id="filter-type">
+                            <option value="all">Tất cả loại</option>
+                            <option value="http">HTTP/HTTPS</option>
+                            <option value="socks">SOCKS5</option>
+                        </select>
+                        
+                        <input type="text" id="filter-comment" placeholder="Tìm theo ghi chú...">
+                    </div>
+                    
+                    <div class="proxy-list" id="proxy-list">
+                        <div class="loading">Đang tải danh sách proxy...</div>
+                    </div>
+                </div>
+                
+                <!-- Other tabs -->
+                <div id="orders-tab" class="dashboard-tab hidden">
+                    <h2>LỊCH SỬ ĐƠN HÀNG</h2>
+                    <div class="orders-list">
+                        <p class="empty-state">Chưa có đơn hàng nào.</p>
+                    </div>
+                </div>
+                
+                <div id="payments-tab" class="dashboard-tab hidden">
+                    <h2>LỊCH SỬ THANH TOÁN</h2>
+                    <div class="payments-list">
+                        <p class="empty-state">Chưa có giao dịch nào.</p>
+                    </div>
+                </div>
+                
+                <div id="profile-tab" class="dashboard-tab hidden">
+                    <h2>THÔNG TIN CÁ NHÂN</h2>
+                    <div class="profile-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Họ và tên</label>
+                                <input type="text" id="profile-name" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" id="profile-email" class="form-input" readonly>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Số điện thoại</label>
+                                <input type="tel" id="profile-phone" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label>Ngày sinh</label>
+                                <input type="date" id="profile-birthday" class="form-input">
+                            </div>
+                        </div>
+                        
+                        <button class="btn-primary">Cập nhật thông tin</button>
+                    </div>
+                    
+                    <div class="password-section">
+                        <h3>Đổi mật khẩu</h3>
+                        <div class="form-group">
+                            <label>Mật khẩu hiện tại</label>
+                            <input type="password" id="current-password" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Mật khẩu mới</label>
+                            <input type="password" id="new-password" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Xác nhận mật khẩu mới</label>
+                            <input type="password" id="confirm-password" class="form-input">
+                        </div>
+                        <button class="btn-primary">Đổi mật khẩu</button>
+                    </div>
+                </div>
+                
+                <div id="api-tab" class="dashboard-tab hidden">
+                    <h2>TÍCH HỢP API</h2>
+                    <div class="api-section">
+                        <div class="api-key-box">
+                            <label>API Key của bạn:</label>
+                            <div class="api-key-display">
+                                <code id="user-api-key">94b8ddc0da-572e9c845e-34c2fa225a</code>
+                                <button class="btn-copy" onclick="copyApiKey()">Sao chép</button>
+                            </div>
+                        </div>
+                        
+                        <div class="api-docs">
+                            <h3>Cách sử dụng API</h3>
+                            <div class="api-endpoint">
+                                <h4>Base URL:</h4>
+                                <code>https://px6.link/api/{api_key}/{method}/?{params}</code>
+                            </div>
+                            
+                            <div class="api-methods">
+                                <h4>Các phương thức có sẵn:</h4>
+                                <ul class="methods-list">
+                                    <li><strong>getprice</strong> - Lấy thông tin giá cả</li>
+                                    <li><strong>getcount</strong> - Kiểm tra số lượng proxy khả dụng</li>
+                                    <li><strong>getcountry</strong> - Lấy danh sách quốc gia</li>
+                                    <li><strong>getproxy</strong> - Lấy danh sách proxy</li>
+                                    <li><strong>buy</strong> - Mua proxy</li>
+                                    <li><strong>prolong</strong> - Gia hạn proxy</li>
+                                    <li><strong>delete</strong> - Xóa proxy</li>
+                                    <li><strong>check</strong> - Kiểm tra proxy</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="api-example">
+                                <h4>Ví dụ sử dụng:</h4>
+                                <pre><code>// Lấy giá cho 10 proxy IPv4 trong 30 ngày
+fetch('https://px6.link/api/94b8ddc0da-572e9c845e-34c2fa225a/getprice/?count=10&period=30&version=4')
+  .then(response => response.json())
+  .then(data => console.log(data));</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Đăng nhập</h3>
+                <span class="close" onclick="closeModal('login')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="login-form">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="login-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mật khẩu</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="remember-me">
+                            Ghi nhớ đăng nhập
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-primary btn-full">Đăng nhập</button>
+                </form>
+                <div class="modal-footer">
+                    <a href="#" onclick="showForgotPassword()">Quên mật khẩu?</a>
+                    <span>Chưa có tài khoản? <a href="#" onclick="switchModal('register')">Đăng ký ngay</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Register Modal -->
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Đăng ký tài khoản</h3>
+                <span class="close" onclick="closeModal('register')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="register-form">
+                    <div class="form-group">
+                        <label>Họ và tên</label>
+                        <input type="text" id="register-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="register-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Số điện thoại</label>
+                        <input type="tel" id="register-phone">
+                    </div>
+                    <div class="form-group">
+                        <label>Mật khẩu</label>
+                        <input type="password" id="register-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Xác nhận mật khẩu</label>
+                        <input type="password" id="register-confirm-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="agree-terms" required>
+                            Tôi đồng ý với <a href="#" target="_blank">Điều khoản sử dụng</a> và <a href="#" target="_blank">Chính sách bảo mật</a>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-primary btn-full">Đăng ký</button>
+                </form>
+                <div class="modal-footer">
+                    <span>Đã có tài khoản? <a href="#" onclick="switchModal('login')">Đăng nhập ngay</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>ProxyPrivate.vn</h4>
+                <p>Dịch vụ proxy riêng tư chất lượng cao, bảo mật tuyệt đối cho người Việt.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">📘 Facebook</a>
+                    <a href="#" class="social-link">📧 Email</a>
+                    <a href="#" class="social-link">📞 Hotline</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Dịch vụ</h4>
+                <ul>
+                    <li><a href="#">Proxy IPv4</a></li>
+                    <li><a href="#">Proxy IPv6</a></li>
+                    <li><a href="#">Proxy chia sẻ</a></li>
+                    <li><a href="#">API tích hợp</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Hỗ trợ</h4>
+                <ul>
+                    <li><a href="#">Hướng dẫn sử dụng</a></li>
+                    <li><a href="#">Câu hỏi thường gặp</a></li>
+                    <li><a href="#">Liên hệ hỗ trợ</a></li>
+                    <li><a href="#">Báo cáo lỗi</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Liên hệ</h4>
+                <p>📧 support@proxyprivate.vn</p>
+                <p>📞 +84 123 456 789</p>
+                <p>🕐 Hỗ trợ 24/7</p>
+                <p>🏢 Hà Nội, Việt Nam</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 ProxyPrivate.vn. Bảo lưu mọi quyền.</p>
+            <div class="footer-links">
+                <a href="#">Điều khoản sử dụng</a>
+                <a href="#">Chính sách bảo mật</a>
+                <a href="#">Chính sách hoàn tiền</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
