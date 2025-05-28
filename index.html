@@ -507,4 +507,76 @@ fetch('https://px6.link/api/94b8ddc0da-572e9c845e-34c2fa225a/getprice/?count=10&
     
     <script src="assets/js/main.js"></script>
 </body>
-</html>
+</html><!-- Register Modal -->
+<div id="register-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Đăng ký tài khoản</h3>
+            <span class="close" onclick="closeModal('register')">&times;</span>
+        </div>
+        <div class="modal-body">
+            <form id="register-form">
+                <div class="form-group">
+                    <label>Tên tài khoản *</label>
+                    <input type="text" id="register-username" required 
+                           placeholder="Nhập tên tài khoản (ít nhất 3 ký tự)">
+                    <small class="form-help">Tên tài khoản sẽ dùng để đăng nhập</small>
+                </div>
+                <div class="form-group">
+                    <label>Mật khẩu *</label>
+                    <input type="password" id="register-password" required 
+                           placeholder="Nhập mật khẩu (ít nhất 6 ký tự)">
+                </div>
+                <div class="form-group">
+                    <label>Xác nhận mật khẩu *</label>
+                    <input type="password" id="register-confirm-password" required 
+                           placeholder="Nhập lại mật khẩu">
+                </div>
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="agree-terms" required>
+                        Tôi đồng ý với <a href="#" target="_blank">Điều khoản sử dụng</a>
+                    </label>
+                </div>
+                <button type="submit" class="btn-primary btn-full">Đăng ký</button>
+            </form>
+            <div class="modal-footer">
+                <span>Đã có tài khoản? <a href="#" onclick="switchModal('login')">Đăng nhập ngay</a></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Login Modal -->
+<div id="login-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Đăng nhập</h3>
+            <span class="close" onclick="closeModal('login')">&times;</span>
+        </div>
+        <div class="modal-body">
+            <form id="login-form">
+                <div class="form-group">
+                    <label>Tên tài khoản</label>
+                    <input type="text" id="login-username" required 
+                           placeholder="Nhập tên tài khoản">
+                </div>
+                <div class="form-group">
+                    <label>Mật khẩu</label>
+                    <input type="password" id="login-password" required 
+                           placeholder="Nhập mật khẩu">
+                </div>
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="remember-me">
+                        Ghi nhớ đăng nhập
+                    </label>
+                </div>
+                <button type="submit" class="btn-primary btn-full">Đăng nhập</button>
+            </form>
+            <div class="modal-footer">
+                <span>Chưa có tài khoản? <a href="#" onclick="switchModal('register')">Đăng ký ngay</a></span>
+            </div>
+        </div>
+    </div>
+</div>
